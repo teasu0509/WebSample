@@ -1,0 +1,152 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>com.tlg.core</groupId>
+	<artifactId>WebSample</artifactId>
+	<packaging>war</packaging>
+	<version>0.1</version>
+	<name>WebSample</name>
+	<properties>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<java.version>1.8</java.version>
+		<maven.test.failure.ignore>true</maven.test.failure.ignore>
+		<junit.version>4.11</junit.version>
+		<spring.version>5.2.4.RELEASE</spring.version>
+		<spring-data-jpa.version>2.2.3.RELEASE</spring-data-jpa.version>
+		<hibernate.version>5.4.2.Final</hibernate.version>
+		<hikaricp.version>2.2.5</hikaricp.version>
+		<apachetiles.version>3.0.5</apachetiles.version>
+		<logback.version>1.1.3</logback.version>
+		<jcl.slf4j.version>1.7.12</jcl.slf4j.version>
+		<!-- J2EE -->
+		<javax.servlet-api.version>3.1.0</javax.servlet-api.version>
+		<taglibs-standard.version>1.2.1</taglibs-standard.version>
+		<sitemesh.version>3.0.1</sitemesh.version>
+	</properties>
+	<dependencies>
+		<!-- J2EE -->
+		<dependency>
+			<groupId>org.apache.taglibs</groupId>
+			<artifactId>taglibs-standard-spec</artifactId>
+			<version>${taglibs-standard.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.taglibs</groupId>
+			<artifactId>taglibs-standard-impl</artifactId>
+			<version>${taglibs-standard.version}</version>
+		</dependency>
+		<!-- jdbc (sql server) -->
+		<!-- <dependency> -->
+		<!-- <groupId>com.microsoft.sqlserver</groupId> -->
+		<!-- <artifactId>mssql-jdbc</artifactId> -->
+		<!-- <version>7.2.2.jre8</version> -->
+		<!-- <scope>runtime</scope> -->
+		<!-- </dependency> -->
+		<dependency>
+			<groupId>com.h2database</groupId>
+			<artifactId>h2</artifactId>
+			<version>1.4.200</version>
+			<scope>runtime</scope>
+		</dependency>
+		<!-- DataSource (HikariCP) -->
+		<dependency>
+			<groupId>com.zaxxer</groupId>
+			<artifactId>HikariCP</artifactId>
+			<version>${hikaricp.version}</version>
+		</dependency>
+		<!-- JPA Provider (Hibernate) -->
+		<dependency>
+			<groupId>org.hibernate</groupId>
+			<artifactId>hibernate-entitymanager</artifactId>
+			<version>${hibernate.version}</version>
+		</dependency>
+		<!-- Spring Data JPA -->
+		<dependency>
+			<groupId>org.springframework.data</groupId>
+			<artifactId>spring-data-jpa</artifactId>
+			<version>${spring-data-jpa.version}</version>
+		</dependency>
+		<!-- Spring dependencies -->
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-webmvc</artifactId>
+			<version>${spring.version}</version>
+		</dependency>
+		<!-- Spring dependencies -->
+		<dependency>
+			<groupId>org.springframework.security</groupId>
+			<artifactId>spring-security-config</artifactId>
+			<version>${spring.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.security</groupId>
+			<artifactId>spring-security-web</artifactId>
+			<version>${spring.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.security</groupId>
+			<artifactId>spring-security-taglibs</artifactId>
+			<version>${spring.version}</version>
+		</dependency>
+		<!-- Sitemesh dependencies -->
+		<dependency>
+			<groupId>org.sitemesh</groupId>
+			<artifactId>sitemesh</artifactId>
+			<version>${sitemesh.version}</version>
+		</dependency>
+		<!-- Testing dependencies -->
+		<dependency>
+			<groupId>junit</groupId>
+			<artifactId>junit</artifactId>
+			<version>${junit.version}</version>
+			<scope>test</scope>
+		</dependency>
+
+		<!-- servlet -->
+		<!-- https://mvnrepository.com/artifact/javax.servlet/javax.servlet-api -->
+		<dependency>
+			<groupId>javax.servlet</groupId>
+			<artifactId>javax.servlet-api</artifactId>
+			<version>3.1.0</version>
+			<scope>provided</scope>
+		</dependency>
+		<!-- https://mvnrepository.com/artifact/jstl/jstl -->
+		<dependency>
+			<groupId>jstl</groupId>
+			<artifactId>jstl</artifactId>
+			<version>1.2</version>
+		</dependency>
+
+		<!-- Logging -->
+		<!-- https://mvnrepository.com/artifact/org.slf4j/jcl-over-slf4j -->
+		<dependency>
+			<groupId>org.slf4j</groupId>
+			<artifactId>jcl-over-slf4j</artifactId>
+			<version>${jcl.slf4j.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>ch.qos.logback</groupId>
+			<artifactId>logback-classic</artifactId>
+			<version>${logback.version}</version>
+		</dependency>
+	</dependencies>
+	<build>
+		<finalName>${project.artifactId}</finalName>
+		<!-- Setting Java Version -->
+		<pluginManagement>
+			<plugins>
+				<plugin>
+					<groupId>org.apache.maven.plugins</groupId>
+					<artifactId>maven-compiler-plugin</artifactId>
+					<version>3.1</version>
+					<configuration>
+						<source>${java.version}</source>
+						<target>${java.version}</target>
+					</configuration>
+				</plugin>
+			</plugins>
+		</pluginManagement>
+	</build>
+
+</project>
